@@ -1,4 +1,3 @@
-<img width="1916" height="851" alt="Model Training Evaulation" src="https://github.com/user-attachments/assets/cdbb5929-4284-4a86-b49a-82064009c55a" /># Prediction-Of-Salary
 This project focuses on predicting employee salaries using machine learning techniques. It provides an end-to-end pipeline—from exploratory data analysis to model training and real-time prediction—allowing users to compare model performance and forecast salaries interactively through a Streamlit interface.
 
 
@@ -391,11 +390,11 @@ Then open the provided URL in your browser, usually:
 ## 📸 Screenshots
 
 | -------------------------------------------- | ----------------------------------------------- | ---------------------------------------------- |
-| ![Salaary Prediction Dashboard](<img width="1919" height="906" alt="Salary Prediction Dashboard" src="https://github.com/user-attachments/assets/e4e3c788-59d9-4ea2-9e30-f08b6c1f87c2" />)
-| ![Model Training and Evaulation](<img width="1916" height="851" alt="Model Training Evaulation" src="https://github.com/user-attachments/assets/bd515319-f3a6-4c80-8373-99ea806307db" />)
-| ![EDA] <img width="1909" height="916" alt="EDA" src="https://github.com/user-attachments/assets/4868e38b-b4bb-445c-b87d-41fe29f05d05" />)
-| ![Dashboard] <img width="1914" height="878" alt="Dashboard" src="https://github.com/user-attachments/assets/75224060-a6ba-43f9-b4fa-9b4ad434e773" />)
-| ![Compare model]<img width="1096" height="423" alt="ccompare model" src="https://github.com/user-attachments/assets/94eaab19-2183-4bff-8ff1-2ebf02467df4" />)
+<img width="1916" height="851" alt="Model Training Evaulation" src="https://github.com/user-attachments/assets/cdbb5929-4284-4a86-b49a-82064009c55a" />
+<img width="1916" height="851" alt="Model Training Evaulation" src="https://github.com/user-attachments/assets/bd515319-f3a6-4c80-8373-99ea806307db" />
+<img width="1909" height="916" alt="EDA" src="https://github.com/user-attachments/assets/4868e38b-b4bb-445c-b87d-41fe29f05d05" />
+<img width="1914" height="878" alt="Dashboard" src="https://github.com/user-attachments/assets/75224060-a6ba-43f9-b4fa-9b4ad434e773" />
+<img width="1096" height="423" alt="ccompare model" src="https://github.com/user-attachments/assets/94eaab19-2183-4bff-8ff1-2ebf02467df4" />
 
 
 ---
