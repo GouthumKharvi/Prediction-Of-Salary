@@ -4,7 +4,7 @@ This project focuses on predicting employee salaries using machine learning tech
 https://github.com/user-attachments/assets/346adb31-c9a6-42e4-90e8-b53221b7e213
 
 
-
+Acess the web app here : https://prediction-of-salary.streamlit.app/
 ---
 
 ## 🧠 Salary Prediction 
