@@ -1,0 +1,2 @@
+Model,CV_R2_Mean,CV_R2_Std,Test_R2,Test_RMSE,Test_MAE,Best_Parameters
+KNN (Tuned),0.844409060919211,0.0,0.852047515053346,0.38911429301158074,0.2376704181606863,"{'metric': 'manhattan', 'n_neighbors': 15, 'p': 1, 'weights': 'distance'}"
