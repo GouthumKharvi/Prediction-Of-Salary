@@ -1,13 +1,14 @@
-# Prediction-Of-Salary
+<img width="1916" height="851" alt="Model Training Evaulation" src="https://github.com/user-attachments/assets/cdbb5929-4284-4a86-b49a-82064009c55a" /># Prediction-Of-Salary
 This project focuses on predicting employee salaries using machine learning techniques. It provides an end-to-end pipeline—from exploratory data analysis to model training and real-time prediction—allowing users to compare model performance and forecast salaries interactively through a Streamlit interface.
 
-Perfect, Goutham 🙌 — since you now have a fully upgraded **Salary Prediction · Next-Gen** Streamlit app, here’s your **complete and professional README.md** (Markdown format).
 
-It’s structured exactly like a real GitHub project — from **introduction to deployment**, including features, setup, file structure, data explanation, models used, and visuals section placeholders.
+https://github.com/user-attachments/assets/346adb31-c9a6-42e4-90e8-b53221b7e213
+
+
 
 ---
 
-## 🧠 Salary Prediction · Next-Gen
+## 🧠 Salary Prediction 
 
 ### *An Interactive Machine Learning Dashboard to Predict Employee Salaries*
 
@@ -39,7 +40,7 @@ It’s structured exactly like a real GitHub project — from **introduction to 
 
 ## 📘 Overview
 
-**Salary Prediction · Next-Gen** is a **data analytics and machine learning project** that predicts employee salaries based on demographic, educational, and professional attributes.
+**Salary Prediction ** is a **data analytics and machine learning project** that predicts employee salaries based on demographic, educational, and professional attributes.
 
 It provides:
 
@@ -99,6 +100,11 @@ The primary goal of this project is to:
 * Auto-training and performance comparison (R², MAE, RMSE)
 * Top-3 models highlighted with metrics
 
+* Two DL Models:
+  
+  * Wide Neaural Network
+  * Deep Neural Network
+
 ✅ **Salary Prediction Interface**
 
 * User inputs demographic and professional info
@@ -122,6 +128,7 @@ The primary goal of this project is to:
 | Data Handling    | pandas, numpy                  |
 | Visualization    | matplotlib, seaborn            |
 | Machine Learning | scikit-learn, xgboost          |
+| Deep Learning    | Keras, Pytorch                 |
 | Web Framework    | Streamlit                      |
 | UI Enhancements  | Custom CSS, HTML, Google Fonts |
 
@@ -192,6 +199,8 @@ SalaryPredictionApp/
 | **XGBoost**                        | Gradient boosting algorithm for strong performance.     |
 | **SVR (Support Vector Regressor)** | Fits optimal regression hyperplane.                     |
 | **KNN (K-Nearest Neighbors)**      | Predicts salary by similarity among nearby data points. |
+| **Wide Neaural Network**           | A Wide Neural Network is used to capture complex feature interactions in tabular or structured data by having few layers with many neurons in each layer.|
+| **Deep Neaural Network**           | A Deep Neural Network is used to learn hierarchical and complex patterns from data through many hidden layers stacked sequentially.|
 
 All models are trained on the same feature set, and performance is compared using R², MAE, and RMSE.
 
@@ -242,15 +251,89 @@ A bar chart compares R² values across models, highlighting top performers.
 
 ```python
 import joblib
+import os
+from datetime import datetime
 
-# Save
-joblib.dump(best_model, 'models/best_model.pkl')
-joblib.dump(scaler, 'models/scaler.pkl')
-joblib.dump(mappings, 'models/encoders.pkl')
+# Define save path
+save_path = r'C:\Users\Gouthum\Downloads\inlighn projects(practical)\Model comparision'
+os.makedirs(save_path, exist_ok=True)
 
-# Load
-best_model = joblib.load('models/best_model.pkl')
-scaler = joblib.load('models/scaler.pkl')
+# Save the best Random Forest model
+model_filename = 'best_random_forest_model.joblib'
+model_filepath = os.path.join(save_path, model_filename)
+
+# Save the tuned Random Forest model
+joblib.dump(rf_model_tuned, model_filepath)
+
+print(f"Best model saved to: {model_filepath}")
+print(f"Model type: Random Forest (Tuned)")
+print(f"Performance: 95.00% R²")
+print(f"File size: {os.path.getsize(model_filepath) / 1024:.2f} KB")
+
+# Also save the preprocessing components for complete pipeline
+scaler_filepath = os.path.join(save_path, 'salary_scaler.joblib')
+label_encoders_filepath = os.path.join(save_path, 'salary_label_encoders.joblib')
+
+# Save scaler
+joblib.dump(scaler, scaler_filepath)
+
+# Save label encoders (if you have them stored)
+# joblib.dump(label_encoders_dict, label_encoders_filepath)
+
+print(f"\nPreprocessing components saved:")
+print(f"Scaler: {scaler_filepath}")
+# print(f"Label encoders: {label_encoders_filepath}")
+
+# Create model metadata
+metadata = {
+    'model_name': 'Random Forest (Tuned)',
+    'model_type': 'RandomForestRegressor',
+    'performance': {
+        'r2_score': 0.9500,
+        'rmse': 0.2261,
+        'mae': 0.1175
+    },
+    'features': ['Age', 'Gender', 'Education Level', 'Job Title', 'Years of Experience', 'Country', 'Race'],
+    'target': 'Salary',
+    'preprocessing': 'StandardScaler + LabelEncoder',
+    'hyperparameters': 'Tuned via RandomizedSearchCV',
+    'save_date': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+    'data_shape': {
+        'train_samples': 5363,
+        'test_samples': 1341,
+        'features': 8
+    }
+}
+
+# Save metadata
+metadata_filepath = os.path.join(save_path, 'best_model_metadata.joblib')
+joblib.dump(metadata, metadata_filepath)
+
+print(f"Model metadata: {metadata_filepath}")
+
+**Load and Use Saved Model**
+def load_best_model(model_path):
+    """Load the saved Random Forest model"""
+    model = joblib.load(model_path)
+    return model
+
+def load_metadata(metadata_path):
+    """Load model metadata"""
+    metadata = joblib.load(metadata_path)
+    return metadata
+
+# Load model for predictions
+loaded_model = load_best_model(model_filepath)
+loaded_metadata = load_metadata(metadata_filepath)
+
+print("MODEL SUCCESSFULLY LOADED:")
+print(f"Model: {loaded_metadata['model_name']}")
+print(f"Performance: {loaded_metadata['performance']['r2_score']:.4f} R²")
+
+# Test prediction on first few samples
+sample_predictions = loaded_model.predict(X_test.head(3))
+print(f"\nSample predictions: {sample_predictions}")
+
 ```
 
 ---
@@ -297,7 +380,7 @@ pip install -r requirements.txt
 cd "C:\Users\Gouthum\Downloads\inlighn projects(practical)"
 
 # Run the Streamlit app
-streamlit run salarypredictionapp_v2.py
+streamlit run salarypredictionapp.py
 ```
 
 Then open the provided URL in your browser, usually:
@@ -307,11 +390,13 @@ Then open the provided URL in your browser, usually:
 
 ## 📸 Screenshots
 
-*(You can add actual images from your dashboard here)*
-
-| Dashboard                                    | Model Comparison                                | Salary Prediction                              |
 | -------------------------------------------- | ----------------------------------------------- | ---------------------------------------------- |
-| ![Dashboard](screenshots/dashboard_home.png) | ![Comparison](screenshots/model_comparison.png) | ![Prediction](screenshots/prediction_form.png) |
+| ![Salaary Prediction Dashboard](<img width="1919" height="906" alt="Salary Prediction Dashboard" src="https://github.com/user-attachments/assets/e4e3c788-59d9-4ea2-9e30-f08b6c1f87c2" />)
+| ![Model Training and Evaulation](<img width="1916" height="851" alt="Model Training Evaulation" src="https://github.com/user-attachments/assets/bd515319-f3a6-4c80-8373-99ea806307db" />)
+| ![EDA] <img width="1909" height="916" alt="EDA" src="https://github.com/user-attachments/assets/4868e38b-b4bb-445c-b87d-41fe29f05d05" />)
+| ![Dashboard] <img width="1914" height="878" alt="Dashboard" src="https://github.com/user-attachments/assets/75224060-a6ba-43f9-b4fa-9b4ad434e773" />)
+| ![Compare model]<img width="1096" height="423" alt="ccompare model" src="https://github.com/user-attachments/assets/94eaab19-2183-4bff-8ff1-2ebf02467df4" />)
+
 
 ---
 
@@ -332,8 +417,8 @@ Then open the provided URL in your browser, usually:
 
 **Goutham Kharvi**
 📍 *Bengaluru, Karnataka*
-💼 Data Scientist | ML Engineer | Streamlit Developer
-📧 [Contact via LinkedIn](https://www.linkedin.com) *(add your actual profile link)*
+💼 Data Scientist |AI/ ML Engineer | Streamlit Developer
+📧 [Contact via LinkedIn]( https://www.linkedin.com/in/gouthum-kharvi-2366a6219/)*
 
 ---
 
