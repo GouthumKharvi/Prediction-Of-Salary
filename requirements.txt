@@ -1,19 +1,19 @@
 # Core Libraries
-pandas==2.2.2
-numpy==1.26.4
+pandas
+numpy
 
 # Visualization Libraries
-matplotlib==3.8.4
-seaborn==0.13.2
-altair==5.3.0
+matplotlib
+seaborn
+altair
 
 # Machine Learning Libraries
-scikit-learn==1.5.0
-xgboost==2.0.3
-joblib==1.4.2
+scikit-learn
+xgboost
+joblib
 
 # Streamlit Framework
-streamlit==1.39.0
+streamlit
 
-# Compatibility Fixes
-protobuf==4.25.3
+# Compatibility Fix
+protobuf<5
