@@ -132,15 +132,14 @@ The primary goal of this project is to:
 ```
 SalaryPredictionApp/
 │
-├── salarypredictionapp_v2.py      # Main Streamlit app script
+├── salarypredictionapp.py      # Main Streamlit app script
 ├── README.md                      # Documentation
 ├── requirements.txt               # Required Python packages
 ├── data/
-│   └── Salary_Data_Based_country_and_race.csv
+│   └── Salary_Data_Based_country_and_race
 ├── models/                        # (Optional) Folder for saved models
-│   ├── best_model.pkl
-│   ├── scaler.pkl
-│   └── encoders.pkl
+   ├── best_model,scaler,encoders.joblib
+   
 └── screenshots/
     ├── dashboard_home.png
     ├── model_comparison.png
