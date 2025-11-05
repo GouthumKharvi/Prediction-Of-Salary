@@ -132,18 +132,35 @@ The primary goal of this project is to:
 ```
 SalaryPredictionApp/
 │
-├── salarypredictionapp.py      # Main Streamlit app script
-├── README.md                      # Documentation
-├── requirements.txt               # Required Python packages
+├── salarypredictionapp.py               
+├── README.md                            
+├── requirements.txt                     
+│
 ├── data/
-│   └── Salary_Data_Based_country_and_race
-├── models/                        # (Optional) Folder for saved models
-   ├── best_model,scaler,encoders.joblib
-   
-└── screenshots/
+│   └── Salary_Data_Based_country_and_race.csv     
+│
+├── models/                              
+│   ├── best_model,scaler,encoders,metadata.joblib               
+
+
+│
+├── model_comparison/                    
+│   ├── decision_tree_hyperparameter_tuned_model_results.csv
+│   ├── knn_hyperparameter_tuned_model_results.csv
+│   ├── knn_tuned_model_results.csv
+│   ├── linear_model_results.csv
+│   ├── mlp_hyperparameter_tuned_model_results.csv
+│   ├── model_results.csv
+│   ├── random_forest_tuned_model_results.csv
+│   ├── Ridge_regression_hyperparameter_tuned_model_results.csv
+│   ├── svr_hyperparameter_tuned_model_results.csv
+│   └── xgboost_tuned_model_results.csv
+│
+└── screenshots/                        
     ├── dashboard_home.png
     ├── model_comparison.png
     └── prediction_form.png
+
 ```
 
 ---
